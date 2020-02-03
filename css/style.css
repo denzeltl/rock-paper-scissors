@@ -40,7 +40,6 @@ main {
 .menu {
   position: absolute;
   top: 0;
-  bottom: 0;
   left: 0;
   right: 0;
   background: rgba(16, 29, 118, 0.9);
@@ -62,6 +61,12 @@ main {
           flex-direction: column;
   text-align: center;
   padding: 4rem;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+.menu.offset-menu {
+  top: -100vh;
 }
 
 .menu h1 {
@@ -186,8 +191,8 @@ main {
   background: rgba(255, 255, 255, 0.2);
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
-  -webkit-box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.8);
-          box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0 0 0.8rem rgba(255, 255, 255, 0.5);
+          box-shadow: 0 0 0.8rem rgba(255, 255, 255, 0.5);
 }
 
 .choices div img {
