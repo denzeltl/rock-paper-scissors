@@ -23,6 +23,51 @@ main {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    position: relative;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(16, 29, 118, 0.9);
+    z-index: 10;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 4rem;
+    h1 {
+        font-size: 2.4rem;
+        margin-bottom: 4rem;
+    }
+    p {
+        font-size: 1.4rem;
+        margin-bottom: 6rem;
+        line-height: 2.2;
+    }
+    button {
+        padding: 1.2rem 2rem;
+        font-weight: bold;
+        font-size: 1.1rem;
+        letter-spacing: 0.1rem;
+        color: #fff;
+        background: #e65512;
+        border-radius: 0.5rem;
+        border: none;
+        margin-bottom: 2rem;
+        transition: all 0.2s;
+        cursor: pointer;
+        &:hover {
+            background: #fff;
+            color: #e65512;
+        }
+    }
 }
 
 .scoreboard {
@@ -81,6 +126,7 @@ main {
             border: 2px solid rgb(255, 255, 255);
             background: rgba(255, 255, 255, 0.2);
             transform: scale(1.05);
+            box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.8);
         }
         img {
             width: 6rem;
