@@ -20,16 +20,53 @@ function compareHands(choice) {
     const playerChoice = choice.dataset.choice;
     const computerChoices = ["rock", "paper", "scissors"];
     const computerChoice = computerChoices[Math.floor(Math.random() * 3)];
-    showHands(playerChoice, computerChoice);
-    compareHandsConditions(playerChoice, computerChoice);
+    playerHand.src = `/img/rock.png`;
+    computerHand.src = `/img/rock.png`;
+    animateHands(playerChoice, computerChoice);
 }
 
 // Animate and show hands
-function showHands(player, computer) {}
+function animateHands(player, computer) {
+    playerHand.style.animation = "shakeP 0.8s";
+    computerHand.style.animation = "shakeC 0.8s";
+    setTimeout(function() {
+        compareHandsConditions(player, computer);
+    }, 800);
+}
+
+// Show player hand
+function showPlayerHand(choice) {
+    playerHand.addEventListener("animationend", () => {
+        playerHand.style.animation = "";
+        if (choice === "rock") {
+            playerHand.style.transform = "scaleX(-1)";
+            playerHand.src = `/img/${choice}.png`;
+        } else {
+            playerHand.style.transform = "scaleX(1)";
+            playerHand.src = `/img/${choice}.png`;
+        }
+    });
+}
+
+// Show computer hand
+function showComputerHand(choice) {
+    computerHand.addEventListener("animationend", () => {
+        computerHand.style.animation = "";
+        if (choice === "rock") {
+            computerHand.style.transform = "scaleX(1)";
+            computerHand.src = `/img/${choice}.png`;
+        } else {
+            computerHand.style.transform = "scaleX(-1)";
+            computerHand.src = `/img/${choice}.png`;
+        }
+    });
+}
 
 // Conditions for comparing hands
 function compareHandsConditions(player, computer) {
     if (player === "rock") {
+        showPlayerHand(player);
+        showComputerHand(computer);
         if (computer === "scissors") {
             playerScore++;
             updateScores();
@@ -40,6 +77,8 @@ function compareHandsConditions(player, computer) {
             return;
         }
     } else if (player === "paper") {
+        showPlayerHand(player);
+        showComputerHand(computer);
         if (computer === "rock") {
             playerScore++;
             updateScores();
@@ -50,6 +89,8 @@ function compareHandsConditions(player, computer) {
             return;
         }
     } else {
+        showPlayerHand(player);
+        showComputerHand(computer);
         if (computer === "paper") {
             playerScore++;
             updateScores();

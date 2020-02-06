@@ -100,6 +100,52 @@ main {
             }
         }
     }
+    @keyframes shakeP {
+        0% {
+            transform: translateY(0) scaleX(-1);
+        }
+        10% {
+            transform: translateY(-2rem) scaleX(-1);
+        }
+        30% {
+            transform: translateY(2rem) scaleX(-1);
+        }
+        50% {
+            transform: translateY(-2rem) scaleX(-1);
+        }
+        70% {
+            transform: translateY(2rem) scaleX(-1);
+        }
+        90% {
+            transform: translateY(-2rem) scaleX(-1);
+        }
+        100% {
+            transform: translateY(0) scaleX(-1);
+        }
+    }
+    @keyframes shakeC {
+        0% {
+            transform: translateY(0);
+        }
+        10% {
+            transform: translateY(-2rem);
+        }
+        30% {
+            transform: translateY(2rem);
+        }
+        50% {
+            transform: translateY(-2rem);
+        }
+        70% {
+            transform: translateY(2rem);
+        }
+        90% {
+            transform: translateY(-2rem);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
 }
 
 .choices {
