@@ -177,6 +177,16 @@ main {
             transform: scale(1.05);
             box-shadow: 0 0 0.8rem rgba(255, 255, 255, 0.5);
         }
+        &.disable-button {
+            cursor: not-allowed;
+            border: 2px solid rgb(25, 25, 25);
+            background: rgba(25, 25, 25, 0.6);
+            opacity: 0.6;
+            &:hover {
+                transform: scale(1);
+                box-shadow: none;
+            }
+        }
         img {
             width: 6rem;
         }

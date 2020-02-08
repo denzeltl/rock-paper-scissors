@@ -23,6 +23,9 @@ function compareHands(choice) {
     const computerChoice = computerChoices[Math.floor(Math.random() * 3)];
     playerHand.src = `/img/rock.png`;
     computerHand.src = `/img/rock.png`;
+    choices.forEach(choice => {
+        choice.classList.add("disable-button");
+    });
     animateHands(playerChoice, computerChoice);
 }
 
@@ -69,6 +72,9 @@ function compareHandsConditions(player, computer) {
         showPlayerHand(player);
         showComputerHand(computer);
         functionRunning = false;
+        choices.forEach(choice => {
+            choice.classList.remove("disable-button");
+        });
         if (computer === "scissors") {
             playerScore++;
             updateScores();
@@ -84,6 +90,9 @@ function compareHandsConditions(player, computer) {
         showPlayerHand(player);
         showComputerHand(computer);
         functionRunning = false;
+        choices.forEach(choice => {
+            choice.classList.remove("disable-button");
+        });
         if (computer === "rock") {
             playerScore++;
             updateScores();
@@ -99,6 +108,9 @@ function compareHandsConditions(player, computer) {
         showPlayerHand(player);
         showComputerHand(computer);
         functionRunning = false;
+        choices.forEach(choice => {
+            choice.classList.remove("disable-button");
+        });
         if (computer === "paper") {
             playerScore++;
             updateScores();
