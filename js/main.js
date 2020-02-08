@@ -11,8 +11,19 @@ let functionRunning = false;
 
 // Open and close menu
 function toggleMenu() {
+    playerScore = 0;
+    computerScore = 0;
+    playerScoreboard.textContent = "0";
+    computerScoreboard.textContent = "0";
+    playerHand.src = `/img/rock.png`;
+    playerHand.style.transform = "scaleX(-1)";
+    computerHand.src = `/img/rock.png`;
+    computerHand.style.transform = "scaleX(1)";
+    functionRunning = false;
+    choices.forEach(choice => {
+        choice.classList.remove("disable-button");
+    });
     menu.classList.add("offset-menu");
-    startGame();
 }
 
 // Compare hands
@@ -71,55 +82,52 @@ function compareHandsConditions(player, computer) {
     if (player === "rock") {
         showPlayerHand(player);
         showComputerHand(computer);
-        functionRunning = false;
-        choices.forEach(choice => {
-            choice.classList.remove("disable-button");
-        });
         if (computer === "scissors") {
             playerScore++;
             updateScores();
+            checkWinner();
             return;
         } else if (computer === "paper") {
             computerScore++;
             updateScores();
+            checkWinner();
             return;
         } else {
+            checkWinner();
             return;
         }
     } else if (player === "paper") {
         showPlayerHand(player);
         showComputerHand(computer);
-        functionRunning = false;
-        choices.forEach(choice => {
-            choice.classList.remove("disable-button");
-        });
         if (computer === "rock") {
             playerScore++;
             updateScores();
+            checkWinner();
             return;
         } else if (computer === "scissors") {
             computerScore++;
             updateScores();
+            checkWinner();
             return;
         } else {
+            checkWinner();
             return;
         }
     } else {
         showPlayerHand(player);
         showComputerHand(computer);
-        functionRunning = false;
-        choices.forEach(choice => {
-            choice.classList.remove("disable-button");
-        });
         if (computer === "paper") {
             playerScore++;
             updateScores();
+            checkWinner();
             return;
         } else if (computer === "rock") {
             computerScore++;
             updateScores();
+            checkWinner();
             return;
         } else {
+            checkWinner();
             return;
         }
     }
@@ -129,6 +137,32 @@ function compareHandsConditions(player, computer) {
 function updateScores() {
     playerScoreboard.textContent = playerScore;
     computerScoreboard.textContent = computerScore;
+}
+
+// Check if someone won
+function checkWinner() {
+    if (playerScore === 5 || computerScore === 5) {
+        setTimeout(() => {
+            const h1 = document.querySelector(".menu h1");
+            const p = document.querySelector(".menu p");
+            const button = document.querySelector(".menu button");
+
+            if (playerScore === 5) {
+                h1.innerHTML = `You won!<br>Congratulations!`;
+            } else {
+                h1.innerHTML = `You lost!<br>Better luck next time!`;
+            }
+
+            p.innerHTML = `You got ${playerScore} points.<br>The computer got ${computerScore} points.`;
+            button.textContent = "PLAY AGAIN?";
+            menu.classList.remove("offset-menu");
+        }, 1000);
+    } else {
+        functionRunning = false;
+        choices.forEach(choice => {
+            choice.classList.remove("disable-button");
+        });
+    }
 }
 
 // #### Event listeners ####
