@@ -7,8 +7,8 @@ let computerScore = 0;
 const playerHand = document.querySelector(".hands-player img");
 const computerHand = document.querySelector(".hands-computer img");
 const choices = document.querySelectorAll(".choices div");
+let functionRunning = false;
 
-// #### Functions ####
 // Open and close menu
 function toggleMenu() {
     menu.classList.add("offset-menu");
@@ -17,6 +17,7 @@ function toggleMenu() {
 
 // Compare hands
 function compareHands(choice) {
+    functionRunning = true;
     const playerChoice = choice.dataset.choice;
     const computerChoices = ["rock", "paper", "scissors"];
     const computerChoice = computerChoices[Math.floor(Math.random() * 3)];
@@ -67,36 +68,45 @@ function compareHandsConditions(player, computer) {
     if (player === "rock") {
         showPlayerHand(player);
         showComputerHand(computer);
+        functionRunning = false;
         if (computer === "scissors") {
             playerScore++;
             updateScores();
+            return;
         } else if (computer === "paper") {
             computerScore++;
             updateScores();
+            return;
         } else {
             return;
         }
     } else if (player === "paper") {
         showPlayerHand(player);
         showComputerHand(computer);
+        functionRunning = false;
         if (computer === "rock") {
             playerScore++;
             updateScores();
+            return;
         } else if (computer === "scissors") {
             computerScore++;
             updateScores();
+            return;
         } else {
             return;
         }
     } else {
         showPlayerHand(player);
         showComputerHand(computer);
+        functionRunning = false;
         if (computer === "paper") {
             playerScore++;
             updateScores();
+            return;
         } else if (computer === "rock") {
             computerScore++;
             updateScores();
+            return;
         } else {
             return;
         }
@@ -109,13 +119,14 @@ function updateScores() {
     computerScoreboard.textContent = computerScore;
 }
 
-// Start game
-function startGame() {}
-
 // #### Event listeners ####
 menuStart.addEventListener("click", toggleMenu);
 choices.forEach(choice => {
     choice.addEventListener("click", function() {
-        compareHands(this);
+        if (functionRunning) {
+            return;
+        } else {
+            compareHands(this);
+        }
     });
 });
