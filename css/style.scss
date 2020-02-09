@@ -196,3 +196,23 @@ main {
         }
     }
 }
+
+// Media Queries
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+    .hands {
+        div {
+            img {
+                width: 13rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    html {
+        font-size: 12px;
+    }
+}
