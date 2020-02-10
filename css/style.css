@@ -346,8 +346,35 @@ main {
   html {
     font-size: 14px;
   }
+  main {
+    padding: 3rem;
+  }
+  .scoreboard {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .scoreboard div:first-child {
+    margin-bottom: 1.4rem;
+  }
+  .scoreboard div p {
+    width: 100%;
+  }
   .hands div img {
     width: 13rem;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .hands div:first-child {
+    text-align: left;
+  }
+  .hands div:last-child {
+    text-align: right;
+  }
+  .choices div {
+    margin-left: 0.5rem;
   }
 }
 

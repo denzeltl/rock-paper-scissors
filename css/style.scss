@@ -202,6 +202,20 @@ main {
     html {
         font-size: 14px;
     }
+    main {
+        padding: 3rem;
+    }
+    .scoreboard {
+        flex-direction: column;
+        div {
+            &:first-child {
+                margin-bottom: 1.4rem;
+            }
+            p {
+                width: 100%;
+            }
+        }
+    }
     .hands {
         div {
             img {
@@ -210,7 +224,23 @@ main {
         }
     }
 }
-
+@media screen and (max-width: 580px) {
+    .hands {
+        div {
+            &:first-child {
+                text-align: left;
+            }
+            &:last-child {
+                text-align: right;
+            }
+        }
+    }
+    .choices {
+        div {
+            margin-left: 0.5rem;
+        }
+    }
+}
 @media screen and (max-width: 480px) {
     html {
         font-size: 12px;
