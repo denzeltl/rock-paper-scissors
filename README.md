@@ -8,4 +8,4 @@ Hand images from: https://github.com/reiinakano/tfjs-rock-paper-scissors/tree/ma
 
 **Built with:** _JavaScript, Sass_
 
-**Completed on:** _mm/dd/yyyy_
+**Completed on:** _02/11/2020_

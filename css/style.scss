@@ -245,4 +245,28 @@ main {
     html {
         font-size: 12px;
     }
+    main {
+        padding: 2rem;
+    }
+    .hands {
+        padding: 5rem 0;
+        div {
+            width: 50%;
+            text-align: center;
+        }
+    }
+    .choices {
+        div {
+            width: 30%;
+            margin-left: 1.5rem;
+            p {
+                margin-top: 1.2rem;
+            }
+        }
+    }
+}
+@media screen and (max-width: 380px) {
+    html {
+        font-size: 10px;
+    }
 }
