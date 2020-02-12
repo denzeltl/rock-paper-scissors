@@ -15,9 +15,9 @@ function toggleMenu() {
     computerScore = 0;
     playerScoreboard.textContent = "0";
     computerScoreboard.textContent = "0";
-    playerHand.src = `/img/rock.png`;
+    playerHand.src = `./img/rock.png`;
     playerHand.style.transform = "scaleX(-1)";
-    computerHand.src = `/img/rock.png`;
+    computerHand.src = `./img/rock.png`;
     computerHand.style.transform = "scaleX(1)";
     functionRunning = false;
     choices.forEach(choice => {
@@ -32,8 +32,8 @@ function compareHands(choice) {
     const playerChoice = choice.dataset.choice;
     const computerChoices = ["rock", "paper", "scissors"];
     const computerChoice = computerChoices[Math.floor(Math.random() * 3)];
-    playerHand.src = `/img/rock.png`;
-    computerHand.src = `/img/rock.png`;
+    playerHand.src = `./img/rock.png`;
+    computerHand.src = `./img/rock.png`;
     choices.forEach(choice => {
         choice.classList.add("disable-button");
     });
@@ -55,10 +55,10 @@ function showPlayerHand(choice) {
         playerHand.style.animation = "";
         if (choice === "rock") {
             playerHand.style.transform = "scaleX(-1)";
-            playerHand.src = `/img/${choice}.png`;
+            playerHand.src = `./img/${choice}.png`;
         } else {
             playerHand.style.transform = "scaleX(1)";
-            playerHand.src = `/img/${choice}.png`;
+            playerHand.src = `./img/${choice}.png`;
         }
     });
 }
@@ -69,10 +69,10 @@ function showComputerHand(choice) {
         computerHand.style.animation = "";
         if (choice === "rock") {
             computerHand.style.transform = "scaleX(1)";
-            computerHand.src = `/img/${choice}.png`;
+            computerHand.src = `./img/${choice}.png`;
         } else {
             computerHand.style.transform = "scaleX(-1)";
-            computerHand.src = `/img/${choice}.png`;
+            computerHand.src = `./img/${choice}.png`;
         }
     });
 }
